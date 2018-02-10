@@ -5,14 +5,6 @@
 source "${XDG_CONFIG_HOME:-$HOME/.config}/env/utils.sh"
 
 
-# Set LS_COLORS, use `colors` file if available
-if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/ls/colors" ]] ; then
-    eval $( dircolors -b "${XDG_CONFIG_HOME:-$HOME/.config}/ls/colors" )
-else
-    eval $( dircolors -b )
-fi
-
-
 # Set `EDITOR` and `VISUAL`
 if command -v "nvim" >/dev/null 2>&1 ; then         # Use `nvim` if available
     nvim="$(command -v nvim)"
