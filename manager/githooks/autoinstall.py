@@ -12,6 +12,7 @@ PLAYBOOK_DIR = Path('../../manager')
 
 
 def main():
+    sys.stdin = open('/dev/tty')
     sys.stdout.write('Re-install dotfiles? This will overwrite all changes! [Y/n] ')
     choice = input().lower()
 
