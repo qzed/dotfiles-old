@@ -1,0 +1,7 @@
+- name: Ensure that the ls configuration directory exists
+  file: path='{{ xdg_config_home }}/ls' state=directory
+
+- name: Deploy ls configuration file (colors)
+  copy:
+    src: colors
+    dest: '{{ xdg_config_home }}/ls/colors'

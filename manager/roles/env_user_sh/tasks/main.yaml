@@ -1,0 +1,7 @@
+- name: Ensure that the user home directory exists
+  file: path='{{ dir_user_home }}' state=directory
+
+- name: Deploy sh environment configuration file (.profile)
+  copy:
+    src: .profile
+    dest: '{{ dir_user_home }}/.profile'

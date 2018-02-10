@@ -1,0 +1,8 @@
+- name: Ensure that the environment configuration directory exists
+  file: path='{{ xdg_config_home }}/env' state=directory
+
+- name: Deploy environment configuration files (.config/env/{user.sh,utils.sh})
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'utils.sh', dest: '{{ xdg_config_home }}/env/utils.sh' }
+    - { src: 'user.sh', dest: '{{ xdg_config_home }}/env/user.sh' }

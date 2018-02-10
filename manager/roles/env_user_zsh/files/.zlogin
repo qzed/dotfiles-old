@@ -1,0 +1,1 @@
+../../../../dotfiles/env/user_zsh/.zlogin

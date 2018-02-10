@@ -1,0 +1,17 @@
+- name: Ensure that the user home directory exists
+  file: path='{{ dir_user_home }}' state=directory
+
+- name: Ensure that the zsh configuration directory exists
+  file: path='{{ xdg_config_home }}/zsh' state=directory
+
+- name: Deploy zsh configuration files
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: '.zshrc', dest: '{{ dir_user_home }}/.zshrc' }
+    - { src: 'aliases.zsh', dest: '{{ xdg_config_home }}/zsh/aliases.zsh' }
+    - { src: 'completion.zsh', dest: '{{ xdg_config_home }}/zsh/completion.zsh' }
+    - { src: 'directories.zsh', dest: '{{ xdg_config_home }}/zsh/directories.zsh' }
+    - { src: 'history.zsh', dest: '{{ xdg_config_home }}/zsh/history.zsh' }
+    - { src: 'misc.zsh', dest: '{{ xdg_config_home }}/zsh/misc.zsh' }
+    - { src: 'theme.zsh', dest: '{{ xdg_config_home }}/zsh/theme.zsh' }
+    - { src: 'zle.zsh', dest: '{{ xdg_config_home }}/zsh/zle.zsh' }

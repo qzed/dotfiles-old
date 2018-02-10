@@ -1,0 +1,9 @@
+#!/usr/bin/env ansible-playbook
+
+- name: set-up dotfiles
+  hosts: local
+  roles:
+  - env_user_sh
+  - env_user_zsh
+  - zsh
+  - ls_colors

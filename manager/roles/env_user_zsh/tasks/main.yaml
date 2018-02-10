@@ -1,0 +1,7 @@
+- name: Ensure that the user home directory exists
+  file: path='{{ dir_user_home }}' state=directory
+
+- name: Deploy zsh environment configuration file (.zlogin)
+  copy:
+    src: .zlogin
+    dest: '{{ dir_user_home }}/.zlogin'

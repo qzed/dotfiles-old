@@ -1,0 +1,6 @@
+# Common path variables.
+
+dir_user_home: "{{ ansible_user_dir }}"
+xdg_config_home: "{{ lookup('env', 'XDG_CONFIG_HOME') | default(dir_user_home ~ '/.config', true) }}"
+xdg_cache_home: "{{ lookup('env', 'XDG_CACHE_HOME') | default(dir_user_home ~ '/.cache', true) }}"
+xdg_data_home: "{{ lookup('env', 'XDG_DATA_HOME') | default(dir_user_home ~ '/.local/share', true) }}"
