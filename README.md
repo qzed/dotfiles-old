@@ -1,5 +1,11 @@
 # Personal Configuration Files
 
+Contains configuration files for
+- user environment (environment-variables like `PATH` and modification thereof, `.profile`, and `.zlogin`)
+- zsh (key bindings, basic completion, ...)
+- LS_COLORS (loaded via `.profile` or `.zlogin`)
+
+
 ## Installation
 
 Automated installation requires ansible.
