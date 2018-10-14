@@ -1,0 +1,7 @@
+- name: Ensure the neovim configuration directory exists
+  file: path='{{ xdg_config_home }}/nvim' state=directory
+
+- name: Deploy vim configuration files (.config/nvim/init.vim)
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'init.vim', dest: '{{ xdg_config_home }}/nvim/init.vim' }

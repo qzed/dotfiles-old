@@ -1,0 +1,7 @@
+- name: Ensure the vim configuration directory exists
+  file: path='{{ dir_user_home }}/.vim' state=directory
+
+- name: Deploy vim configuration files (.vim/vimrc)
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'vimrc', dest: '{{ dir_user_home }}/.vim/vimrc' }
