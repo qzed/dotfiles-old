@@ -45,10 +45,14 @@ flags_append RUSTFLAGS "-C" "target-cpu=native"
 
 
 # less configuration
-if [[ -f ${HOME}/bin/src-hilite-lesspipe.sh ]] && command -v "lesspipe" > /dev/null 2>&1 ; then
+if [[ -f "${HOME}/bin/src-hilite-lesspipe.sh" ]] && command -v "lesspipe" > /dev/null 2>&1 ; then
     eval $(lesspipe)
     export LESS="-R"
     export LESSOPEN="| ${HOME}/bin/src-hilite-lesspipe.sh %s"
+elif command -v "src-hilite-lesspipe.sh" > /dev/null 2>&1 && command -v "lesspipe" > /dev/null 2>&1 ; then
+    eval $(lesspipe)
+    export LESS="-R"
+    export LESSOPEN="| src-hilite-lesspipe.sh %s"
 elif command -v "lesspipe" > /dev/null 2>&1 ; then
     eval $(lesspipe)
 fi
