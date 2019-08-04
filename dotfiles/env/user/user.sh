@@ -33,13 +33,11 @@ fi
 
 
 # Modify PATH etc., 
-
 path_prepend PATH "${HOME}/.cargo/bin"
 path_prepend PATH "${HOME}/bin"
 
 
 # Add compiler flags for native architecture optimizations
-
 flags_append CFLAGS "-pipe" "-march=native"
 flags_append CXXFLAGS "-pipe" "-march=native"
 
