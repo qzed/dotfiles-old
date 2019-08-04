@@ -5,3 +5,4 @@
   copy:
     src: src-hilite-lesspipe.sh
     dest: '{{ dir_user_home_bin }}/src-hilite-lesspipe.sh'
+    mode: a+rwx
