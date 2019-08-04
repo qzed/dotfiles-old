@@ -1,0 +1,7 @@
+- name: Ensure that the user home directory exists
+  file: path='{{ dir_user_home_bin }}' state=directory
+
+- name: Deploy lesspipe source highlight script (src-highlight-lesspipe.sh)
+  copy:
+    src: src-hilite-lesspipe.sh
+    dest: '{{ dir_user_home_bin }}/src-hilite-lesspipe.sh'

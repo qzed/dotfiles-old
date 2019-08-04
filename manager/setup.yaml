@@ -7,5 +7,6 @@
   - env_user_zsh
   - zsh
   - ls_colors
+  - source-highlight-lesspipe
   - vim
   - nvim
