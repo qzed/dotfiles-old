@@ -34,7 +34,7 @@ fi
 
 # Modify PATH etc., 
 path_prepend PATH "${HOME}/.cargo/bin"
-path_prepend PATH "${HOME}/bin"
+path_prepend PATH "${HOME}/.bin"
 
 
 # Add compiler flags for native architecture optimizations
@@ -45,10 +45,10 @@ flags_append RUSTFLAGS "-C" "target-cpu=native"
 
 
 # less configuration
-if [[ -f "${HOME}/bin/src-hilite-lesspipe.sh" ]] && command -v "lesspipe" > /dev/null 2>&1 ; then
+if [[ -f "${HOME}/.bin/src-hilite-lesspipe.sh" ]] && command -v "lesspipe" > /dev/null 2>&1 ; then
     eval $(lesspipe)
     export LESS="-R"
-    export LESSOPEN="| ${HOME}/bin/src-hilite-lesspipe.sh %s"
+    export LESSOPEN="| ${HOME}/.bin/src-hilite-lesspipe.sh %s"
 elif command -v "src-hilite-lesspipe.sh" > /dev/null 2>&1 && command -v "lesspipe" > /dev/null 2>&1 ; then
     eval $(lesspipe)
     export LESS="-R"
