@@ -1,8 +1,8 @@
 # ZSH main configuration file.
 
 # Common paths
-local ZSH_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-local ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+ZSH_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 # Load configuration files.
 source "${ZSH_CONFIG_DIR}/misc.zsh"
