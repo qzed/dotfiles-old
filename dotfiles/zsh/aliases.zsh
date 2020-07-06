@@ -8,6 +8,7 @@ if command -v "nvim" >/dev/null 2>&1 ; then
 
 elif command -v "vim" >/dev/null 2>&1 ; then
     alias vi="vim"
+    alias nvim="vim"
 fi
 
 
