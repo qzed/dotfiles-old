@@ -87,6 +87,8 @@ try_bindkey "$key[C-Delete]"    vi-kill-word
 
 try_bindkey "$key[M-BackSpace]" vi-backward-kill-word
 
+try_bindkey "^l"                clear-screen
+
 try_bindkey "^d"                vi-kill-word
 try_bindkey "^k"                history-beginning-search-backward-end
 try_bindkey "^j"                history-beginning-search-forward-end
