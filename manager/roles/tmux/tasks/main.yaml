@@ -1,0 +1,4 @@
+- name: Deploy tmux configuration files (.tmux.conf)
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'tmux.conf', dest: '{{ dir_user_home }}/.tmux.conf' }
