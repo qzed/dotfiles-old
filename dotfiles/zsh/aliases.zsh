@@ -23,3 +23,8 @@ alias -s tar.gz="echo "
 
 # Open files based on their suffixes
 alias -s pdf="xdg-open"
+
+
+# Open files with fzf
+alias fzf-open="fzf --bind 'enter:execute-silent(xdg-open {})+abort'"
+
