@@ -11,10 +11,10 @@ alias pd="popd"
 
 # Sortcuts for `ls`
 if command -v "exa" >/dev/null 2>&1 ; then          # Use `exa` if available
-    alias ll="exa -lhb --group-directories-first"
-    alias la="exa -lhba --group-directories-first"
-    alias ls="exa --group-directories-first"
-    alias t="exa -T --group-directories-first"
+    alias ll="exa -lhb --group-directories-first --sort=Name"
+    alias la="exa -lhba --group-directories-first --sort=Name"
+    alias ls="exa --group-directories-first --sort=Name"
+    alias t="exa -T --group-directories-first --sort=Name"
 else                                                # Fallback to `ls`
     alias ll="ls -lhF --color=auto"
     alias la="ls -lAhF --color=auto"
