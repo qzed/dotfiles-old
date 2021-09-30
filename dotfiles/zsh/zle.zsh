@@ -3,24 +3,35 @@
 zmodload zsh/terminfo
 zmodload zsh/zle
 
-bindkey -e
+bindkey -v
 
+# Key-codes from `terminfo` are only valid when the terminal is in
+# application-mode. Ensures that this is the case when zle reads an input line
+# by using `echoti smkx` and `echoti rmkx`.
 
-# Key-codes from `terminfo` are only valid when the terminal is in application-mode.
-# Ensures that this is the case when zle reads an input line.
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    zle-line-init () {
-        echoti smkx
-    }
+zle-line-init () {
+    # The following is needed if we update the prompt based on vi-mode
+    # update_prompt
+    # zle reset-prompt
 
-    zle-line-finish () {
-        echoti rmkx
-    }
+    (( ! ${+terminfo[smkx]} )) || echoti smkx
+}
 
-    zle -N zle-line-init
-    zle -N zle-line-finish
-fi
+zle-line-finish () {
+    (( ! ${+terminfo[rmkx]} )) || echoti rmkx
+}
 
+zle-keymap-select () {
+    # The following is needed if we update the prompt based on vi-mode
+    # update_prompt
+    # zle reset-prompt
+
+    update_cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
 
 # Load key codes from terminfo.
 typeset -A key
@@ -102,6 +113,11 @@ try_bindkey "^f"                vi-kill-eol
 
 try_bindkey "^[b"               backward-word
 try_bindkey "^[w"               forward-word
+
+
+# Replace vi-backward-delete-char with proper delete
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
 
 
 # Load history backward/forward search functions.
